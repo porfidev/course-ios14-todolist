@@ -24,6 +24,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="xoH-ni-pmC" kind="show" identifier="moveToDetails" id="cS6-7K-GIT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -42,6 +45,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohT-Jm-w9P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="371" y="63"/>
+        </scene>
+        <!--To Do Details View Controller-->
+        <scene sceneID="8sM-PV-UP9">
+            <objects>
+                <viewController id="xoH-ni-pmC" customClass="ToDoDetailsViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7n9-ro-uqI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gK1-AO-wPa">
+                                <rect key="frame" x="10" y="208" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daz-Cz-KJg">
+                                <rect key="frame" x="10" y="299" width="394" height="30"/>
+                                <state key="normal" title="Terminado"/>
+                                <connections>
+                                    <action selector="onPressFinish:" destination="xoH-ni-pmC" eventType="touchUpInside" id="bQE-Ph-sF9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pOo-nQ-G8e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gK1-AO-wPa" firstAttribute="leading" secondItem="pOo-nQ-G8e" secondAttribute="leading" constant="10" id="5qp-BR-jg5"/>
+                            <constraint firstItem="pOo-nQ-G8e" firstAttribute="trailing" secondItem="gK1-AO-wPa" secondAttribute="trailing" constant="10" id="N2e-d0-hG7"/>
+                            <constraint firstItem="pOo-nQ-G8e" firstAttribute="trailing" secondItem="daz-Cz-KJg" secondAttribute="trailing" constant="10" id="aXM-Q4-GD9"/>
+                            <constraint firstItem="daz-Cz-KJg" firstAttribute="top" secondItem="gK1-AO-wPa" secondAttribute="bottom" constant="70" id="cVD-Yw-MT0"/>
+                            <constraint firstItem="daz-Cz-KJg" firstAttribute="leading" secondItem="pOo-nQ-G8e" secondAttribute="leading" constant="10" id="gb2-mD-jFZ"/>
+                            <constraint firstItem="gK1-AO-wPa" firstAttribute="top" secondItem="pOo-nQ-G8e" secondAttribute="top" constant="120" id="pdw-MK-Fg6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DjF-vi-Nvr"/>
+                    <connections>
+                        <outlet property="todoLabel" destination="gK1-AO-wPa" id="VL4-eO-uLS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wNt-GJ-RP9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="370" y="780"/>
         </scene>
         <!--Add To Do View Controller-->
         <scene sceneID="q3H-Pl-QML">

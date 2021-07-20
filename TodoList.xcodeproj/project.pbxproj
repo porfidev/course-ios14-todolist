@@ -16,6 +16,7 @@
 		27CC7EC826A7333E00E6195C /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CC7EC726A7333E00E6195C /* ToDo.swift */; };
 		27CC7ECA26A733BD00E6195C /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CC7EC926A733BD00E6195C /* ToDoTableViewController.swift */; };
 		27CC7ECC26A7536300E6195C /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CC7ECB26A7536300E6195C /* AddToDoViewController.swift */; };
+		27CC7ECE26A756D800E6195C /* ToDoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CC7ECD26A756D800E6195C /* ToDoDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		27CC7EC726A7333E00E6195C /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		27CC7EC926A733BD00E6195C /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		27CC7ECB26A7536300E6195C /* AddToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
+		27CC7ECD26A756D800E6195C /* ToDoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				27CC7EB026A72ABB00E6195C /* AppDelegate.swift */,
 				27CC7EB226A72ABB00E6195C /* SceneDelegate.swift */,
 				27CC7EB626A72ABB00E6195C /* Main.storyboard */,
+				27CC7ECD26A756D800E6195C /* ToDoDetailsViewController.swift */,
 				27CC7ECB26A7536300E6195C /* AddToDoViewController.swift */,
 				27CC7EC726A7333E00E6195C /* ToDo.swift */,
 				27CC7EC926A733BD00E6195C /* ToDoTableViewController.swift */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27CC7EB126A72ABB00E6195C /* AppDelegate.swift in Sources */,
+				27CC7ECE26A756D800E6195C /* ToDoDetailsViewController.swift in Sources */,
 				27CC7EB326A72ABB00E6195C /* SceneDelegate.swift in Sources */,
 				27CC7EBB26A72ABB00E6195C /* TodoList.xcdatamodeld in Sources */,
 				27CC7EC826A7333E00E6195C /* ToDo.swift in Sources */,
