@@ -9,11 +9,14 @@ import UIKit
 
 class ToDoTableViewController: UITableViewController {
     
-    var toDos: [ToDo] = []
-
+    //var toDos: [ToDo] = []
+    var toDosCD: [ToDoCD] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /* for local onlyh
+        
         let todo1 = ToDo();
         todo1.name = "Hola Mundo"
         todo1.priority = 0
@@ -23,41 +26,64 @@ class ToDoTableViewController: UITableViewController {
         todo2.priority = 1
         
         toDos = [todo1, todo2]
+         */
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func getTodos() -> Void {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if let toDosFromCoreData = try? context.fetch(ToDoCD.fetchRequest()) {
+                if let toDos = toDosFromCoreData as? [ToDoCD] {
+                    toDosCD = toDos
+                    tableView.reloadData()
+                }
+            }
+        }
+    }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return toDos.count
+        return toDosCD.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        let selectedToDo = toDos[indexPath.row]
+        let selectedToDo = toDosCD[indexPath.row]
 
         if selectedToDo.priority == 1 {
-            cell.textLabel?.text = "❗️" + selectedToDo.name
+            if let name = selectedToDo.name {
+                cell.textLabel?.text = "❗️" + name
+            }
         } else if selectedToDo.priority == 2 {
-            cell.textLabel?.text = "‼️" + selectedToDo.name
+            if let name = selectedToDo.name {
+                cell.textLabel?.text = "‼️" + name
+            }
         } else {
-            cell.textLabel?.text = selectedToDo.name
+            if let name = selectedToDo.name {
+                cell.textLabel?.text = name
+            }
         }
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedTodo = toDos[indexPath.row]
+        let selectedTodo = toDosCD[indexPath.row]
         performSegue(withIdentifier: "moveToDetails", sender: selectedTodo)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        getTodos()
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -105,8 +131,8 @@ class ToDoTableViewController: UITableViewController {
         }
         
         if let detailsTodoViewController = segue.destination as? ToDoDetailsViewController {
-            if let selectedTodo = sender as? ToDo {
-                detailsTodoViewController.todo = selectedTodo
+            if let selectedTodo = sender as? ToDoCD {
+                detailsTodoViewController.toDoCD = selectedTodo
             }
         }
     }

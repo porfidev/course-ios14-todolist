@@ -21,6 +21,7 @@ class AddToDoViewController: UIViewController {
     }
     
     @IBAction func addToDoAction(_ sender: Any) {
+        /* ADD in local
         let newTodo = ToDo()
         newTodo.priority = prioritySelect.selectedSegmentIndex
         
@@ -30,6 +31,17 @@ class AddToDoViewController: UIViewController {
         
         toDoTableViewController?.toDos.append(newTodo)
         toDoTableViewController?.tableView.reloadData()
+        navigationController?.popViewController(animated: true) */
+        
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            let newToDo = ToDoCD(context: context)
+            newToDo.priority = Int32(prioritySelect.selectedSegmentIndex)
+            if let name = textInput.text {
+                newToDo.name = name
+            }
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        }
+        
         navigationController?.popViewController(animated: true)
     }
     
